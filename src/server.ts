@@ -1,4 +1,5 @@
 console.log("BURAK backend has started")
+import app from './app'
 import dotenv from "dotenv"
 dotenv.config();
 
@@ -9,6 +10,9 @@ mongoose
     .then(data => {
         console.log("Successfully connected to MongoDB");
         const PORT = process.env.PORT ?? 3003;
+        app.listen(PORT, function () {
+            console.log(`The Server Running Successfully on PORT: ${PORT}`)
+        })
     })
     .catch(err => {
         console.log("ERROR on connection MongoDB: ", err)
