@@ -23,11 +23,7 @@ def reverse_sentence(sentence):
     return " ".join([word[::-1] for word in sentence.split()])
 
 
-<<<<<<< HEAD
 FinalResult2 = reverseSentence1("I have been to Italy two times!")
-=======
-FinalResult2 = reverse_sentence("I have been to Italy two times!")
->>>>>>> master
 print("FinalResult2: ", FinalResult2)
 
 # TASK L
