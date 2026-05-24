@@ -1,7 +1,24 @@
-# ============M=====================I========================T================TASK=========L====
+# ============M=================I=================T================TASK=========M====
+numbContain = []
 
+
+def getSquareNumbers(numberList=[11, 22, 33, 44, 55]):
+    for number in numberList:
+        obj = {
+            "number": number,
+            "square": number ** 2
+        }
+        numbContain.append(obj)
+
+    return numbContain
+
+
+SquaredListPY = getSquareNumbers()
+print("SquaredList_PY: ", SquaredListPY)
+
+# ============M===================I================T================TASK=========L====
+'''
 print("=====$$$============= BIRINCHI USUL ==============$$$=====")
-
 
 def reverseSentence1(sentence):
     words = sentence.split(" ")
@@ -31,3 +48,5 @@ print("FinalResult2: ", FinalResult2)
 # So'zlarni ketma-ketligini buzmasdan har bir so'zni alohida teskarisiga o'girib beradigan function tuzing.
 
 # Masalan: reverseSentence("we like coding!") return "ew ekil !gnidoc"
+
+'''
