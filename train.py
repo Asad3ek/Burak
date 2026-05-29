@@ -1,52 +1,70 @@
+# ============M=================I=================T================TASK=========N====
+def palindromCheck(palinWords):
+    for word in palinWords:
+        if (palinWords == palinWords[::-1]):
+            print("palinWords", palinWords)
+            return True
+    else:
+        return False
+
+
+result = palindromCheck("DAD")
+print("result: ", result)
+
+
+# TASK N
+
+# Stringni palindrom ekanligini aniqlab true yoki false qaytarsin.
+
+# Masalan: palindromCheck("dad") return true
+
 # ============M=================I=================T================TASK=========M====
-numbContain = []
+# numbContain = []
 
 
-def getSquareNumbers(numberList=[11, 22, 33, 44, 55]):
-    for number in numberList:
-        obj = {
-            "number": number,
-            "square": number ** 2
-        }
-        numbContain.append(obj)
+# def getSquareNumbers(numberList=[11, 22, 33, 44, 55]):
+#     for number in numberList:
+#         obj = {
+#             "number": number,
+#             "square": number ** 2
+#         }
+#         numbContain.append(obj)
 
-    return numbContain
+#     return numbContain
 
 
-SquaredListPY = getSquareNumbers()
-print("SquaredList_PY: ", SquaredListPY)
+# SquaredListPY = getSquareNumbers()
+# print("SquaredList_PY: ", SquaredListPY)
 
 # ============M===================I================T================TASK=========L====
-'''
-print("=====$$$============= BIRINCHI USUL ==============$$$=====")
 
-def reverseSentence1(sentence):
-    words = sentence.split(" ")
-    reversed_words = []
+# print("=====$$$============= BIRINCHI USUL ==============$$$=====")
 
-    for word in words:
-        reversed_words.append(word[::-1])
+# def reverseSentence1(sentence):
+#     words = sentence.split(" ")
+#     reversed_words = []
 
-    return " ".join(reversed_words)
+#     for word in words:
+#         reversed_words.append(word[::-1])
 
-
-FinalResult1 = reverseSentence1("I have been to Italy two times!")
-print("FinalResult1: ", FinalResult1)
-
-print("=====$$$========== IKKINCHI USUL ==============$$$=====")
+#     return " ".join(reversed_words)
 
 
-def reverse_sentence(sentence):
-    return " ".join([word[::-1] for word in sentence.split()])
+# FinalResult1 = reverseSentence1("I have been to Italy two times!")
+# print("FinalResult1: ", FinalResult1)
+
+# print("=====$$$========== IKKINCHI USUL ==============$$$=====")
 
 
-FinalResult2 = reverseSentence1("I have been to Italy two times!")
-print("FinalResult2: ", FinalResult2)
+# def reverse_sentence(sentence):
+#     return " ".join([word[::-1] for word in sentence.split()])
+
+
+# FinalResult2 = reverseSentence1("I have been to Italy two times!")
+# print("FinalResult2: ", FinalResult2)
 
 # TASK L
 
 # So'zlarni ketma-ketligini buzmasdan har bir so'zni alohida teskarisiga o'girib beradigan function tuzing.
 
 # Masalan: reverseSentence("we like coding!") return "ew ekil !gnidoc"
-
-'''
