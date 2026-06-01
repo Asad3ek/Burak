@@ -53,3 +53,16 @@
 1. Start connection to the server
     .env file da projectning secret data lari yoziladi. Bu fileni Node to'g'ridan to'gri o'qiy olmaydi. SHu sabali bizga "dotenv" package kerak bo'ladi. "dotenv" ning config methodi .env fileni o'qishga yordam beradi. Method: dotenv.config().
 ```
+
+```
+#Project standarts:
+
+1. Login Standarts 
+2. Naming standarts:
+   - Function, variables and Methods:  => camelCase orqali
+   - Class:                            => Pascal: MemberService
+   - Folder:                           => Kebab case: 
+   - css classlarda:                   => Snack: => main_text
+
+3. Error Handling Standarts: 
+```
