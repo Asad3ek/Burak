@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express"
 import { T } from "../libs/types/common"
 import MemberService from "../models/Member.service";
+import { MemberInput } from "../libs/types/member";
+import { MemberType } from "../libs/enums/member.enum";
 
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
@@ -39,12 +41,18 @@ restaurantController.getSignUp = (req: Request, res: Response) => {
         console.log("ERROR on getSignUp", err)
     }
 }
-restaurantController.PostSignUp = (req: Request, res: Response) => {
+restaurantController.postSignUp = async (req: Request, res: Response) => {
     try {
-        console.log("PostSignUp Page");
-        res.send("PostSignUp Page")
+        const newMember: MemberInput = req.body;
+        newMember.memberType = MemberType.RESTAURANT;
+
+        const memberService = new MemberService();
+        const result = await memberService.postSignUp(newMember);
+
+        res.send(result)
     } catch (err) {
         console.log("ERROR on PostSignUp", err)
+        res.send(err);
     }
 }
 

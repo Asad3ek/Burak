@@ -12,7 +12,7 @@ routerAdmin
 
 routerAdmin
     .get("/SignUp", restaurantController.getSignUp)
-    .post("/SignUp", restaurantController.PostSignUp);
+    .post("/SignUp", restaurantController.postSignUp);
 
 /** Product Routers */
 
