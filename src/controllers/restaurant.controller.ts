@@ -12,6 +12,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     }
 }
 
+
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log("User in getLogin Page");
@@ -20,6 +21,15 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         console.log("ERROR on getLogin", err)
     }
 }
+restaurantController.PostLogin = (req: Request, res: Response) => {
+    try {
+        console.log("PostLogin Page");
+        res.send("PostLogin Page")
+    } catch (err) {
+        console.log("ERROR on PostLogin", err)
+    }
+}
+
 
 restaurantController.getSignUp = (req: Request, res: Response) => {
     try {
@@ -27,6 +37,14 @@ restaurantController.getSignUp = (req: Request, res: Response) => {
         res.send("SIgn Up Page")
     } catch (err) {
         console.log("ERROR on getSignUp", err)
+    }
+}
+restaurantController.PostSignUp = (req: Request, res: Response) => {
+    try {
+        console.log("PostSignUp Page");
+        res.send("PostSignUp Page")
+    } catch (err) {
+        console.log("ERROR on PostSignUp", err)
     }
 }
 

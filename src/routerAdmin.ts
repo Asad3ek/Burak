@@ -3,9 +3,19 @@ import restaurantController from "./controllers/restaurant.controller";
 
 const routerAdmin = express.Router();
 
+/** Restaurant Routers */
 routerAdmin.get("/", restaurantController.goHome);
-routerAdmin.get("/Login", restaurantController.getLogin);
-routerAdmin.get("/SignUp", restaurantController.getSignUp);
 
+routerAdmin
+    .get("/Login", restaurantController.getLogin)
+    .post("/Login", restaurantController.PostLogin);
+
+routerAdmin
+    .get("/SignUp", restaurantController.getSignUp)
+    .post("/SignUp", restaurantController.PostSignUp);
+
+/** Product Routers */
+
+/** User Routers */
 
 export default routerAdmin; 
