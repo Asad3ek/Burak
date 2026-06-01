@@ -1,15 +1,36 @@
-# ============M=================I=================T================TASK=========N====
-def palindromCheck(palinWords):
-    for word in palinWords:
-        if (palinWords == palinWords[::-1]):
-            print("palinWords", palinWords)
-            return True
-    else:
-        return False
+# ============M=================I=================T================TASK=========O====
+def calculateSumOfNumbers(string=[10, "10", True, 35]):
+    NumberResult = 0
+    for element in string:
+        if isinstance(element, (int, float)) and not isinstance(element, bool):
+            NumberResult += element
+
+    return NumberResult
 
 
-result = palindromCheck("DAD")
+result = calculateSumOfNumbers()
 print("result: ", result)
+
+
+# TASK O
+
+# Array ichidagi har xil qiymatlardan faqat sonlar yig'indisini hisoblab qaytarsin.
+
+# Masalan: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+
+# ============M=================I=================T================TASK=========N====
+# def palindromCheck(palinWords):
+#     for word in palinWords:
+#         if (palinWords == palinWords[::-1]):
+#             print("palinWords", palinWords)
+#             return True
+#     else:
+#         return False
+
+
+# result = palindromCheck("DAD")
+# print("result: ", result)
 
 
 # TASK N
