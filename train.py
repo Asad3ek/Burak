@@ -1,15 +1,37 @@
+# ============M=================I=================T================TASK=========P====
+def objectToArray(objects={"a": 10, "b": 20}):
+    nestedContain = []
+    object = []
+    for key, value in objects.items():
+        object = [key, value]
+
+        nestedContain.append(object)
+
+    return nestedContain
+
+
+result = objectToArray()
+print("RETURN:", result)
+
+# TASK P
+
+# Objectni nested array sifatida convert qilib qaytarsin.
+
+# Masalan: objectToArray({a: 10, b: 20}) return [["a", 10], ["b", 20]]
+
+
 # ============M=================I=================T================TASK=========O====
-def calculateSumOfNumbers(string=[10, "10", True, 35]):
-    NumberResult = 0
-    for element in string:
-        if isinstance(element, (int, float)) and not isinstance(element, bool):
-            NumberResult += element
+# def calculateSumOfNumbers(string=[10, "10", True, 35]):
+#     NumberResult = 0
+#     for element in string:
+#         if isinstance(element, (int, float)) and not isinstance(element, bool):
+#             NumberResult += element
 
-    return NumberResult
+#     return NumberResult
 
 
-result = calculateSumOfNumbers()
-print("result: ", result)
+# result = calculateSumOfNumbers()
+# print("result: ", result)
 
 
 # TASK O

@@ -1,5 +1,35 @@
 console.log("TypeScript Train has started")
+//============M=====================I========================T================TASK=========P====
+// interface objectType {
+//     key: any;
+//     value: number;
+// }
+
+
+// const nestedContain: objectType[] = [];
+
+// function objectToArray(objects = { a: 10, b: 20 }) {
+//     for (const [key, value] of Object.entries(objects)) {
+//         nestedContain.push(key, value);
+
+//     }
+
+// }
+
+// const result = objectToArray()
+// console.log("result:", result)
+
+
+// TASK P
+
+// Objectni nested array sifatida convert qilib qaytarsin.
+
+// Masalan: objectToArray({a: 10, b: 20}) return [["a", 10], ["b", 20]]
+
+
 //============M=====================I========================T================TASK=========M====
+
+/**
 interface SquareResult {
     number: number;
     square: number;
@@ -21,6 +51,7 @@ function getSquareNumbers(NumberList = [1, 2, 3, 4]) {
 
 const SquaredList = getSquareNumbers();
 console.log("SquaredList: ", SquaredList);
+ */
 
 /**
 TASK M
