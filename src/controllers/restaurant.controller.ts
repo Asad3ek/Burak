@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express"
 import { T } from "../libs/types/common"
 import MemberService from "../models/Member.service";
-import { MemberInput } from "../libs/types/member";
+import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
 const restaurantController: T = {};
@@ -23,12 +23,18 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         console.log("ERROR on getLogin", err)
     }
 }
-restaurantController.PostLogin = (req: Request, res: Response) => {
+restaurantController.PostLogin = async (req: Request, res: Response) => {
     try {
         console.log("PostLogin Page");
-        res.send("PostLogin Page")
+        const input: LoginInput = req.body;
+        const memberService = new MemberService();
+        const result = await memberService.PostLogin(input)
+
+
+        res.send(result);
     } catch (err) {
-        console.log("ERROR on PostLogin", err)
+        console.log("ERROR on PostLogin", err);
+        res.send(err);
     }
 }
 
@@ -43,6 +49,7 @@ restaurantController.getSignUp = (req: Request, res: Response) => {
 }
 restaurantController.postSignUp = async (req: Request, res: Response) => {
     try {
+        console.log(req.body);
         const newMember: MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
 
