@@ -1,17 +1,33 @@
+# ============M=================I=================T================TASK=========Q====
+def hasProperty(obj, prop):
+    return prop in obj
+
+
+result1 = hasProperty({"name": "BMW"}, "name")
+print("RESULT_1:", result1)
+
+result2 = hasProperty({"name": "BMW"}, "age")
+print("RESULT_2:", result2)
+
+
+# Objectda berilgan string propertysi borligini tekshirsin.
+
+# Masalan: hasProperty({name: "BMW"}, "name") return true
+
 # ============M=================I=================T================TASK=========P====
-def objectToArray(objects={"a": 10, "b": 20}):
-    nestedContain = []
-    object = []
-    for key, value in objects.items():
-        object = [key, value]
+# def objectToArray(objects={"a": 10, "b": 20}):
+#     nestedContain = []
+#     object = []
+#     for key, value in objects.items():
+#         object = [key, value]
 
-        nestedContain.append(object)
+#         nestedContain.append(object)
 
-    return nestedContain
+#     return nestedContain
 
 
-result = objectToArray()
-print("RETURN:", result)
+# result = objectToArray()
+# print("RETURN:", result)
 
 # TASK P
 
