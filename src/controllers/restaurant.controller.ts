@@ -10,7 +10,7 @@ const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log("User in goHome");
-        res.send("Home Page")
+        res.render("home")
     } catch (err) {
         console.log("ERROR on goHome", err)
     }
