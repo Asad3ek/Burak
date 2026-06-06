@@ -4,7 +4,7 @@ import { ObjectId } from "mongoose";
 export interface Member {
     _Id: ObjectId,
     memberNick: string,
-    meberPhone: string,
+    memberPhone: string,
     memberPassword?: string,
     memberPoint: number,
     memberType: string,
@@ -19,7 +19,7 @@ export interface Member {
 
 export interface MemberInput {
     memberNick: string,
-    meberPhone: string,
+    memberPhone: string,
     memberPassword: string,
     memberPoint: number,
     memberType?: string,
