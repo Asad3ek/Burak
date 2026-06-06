@@ -19,7 +19,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignUp = (req: Request, res: Response) => {
     try {
         console.log("User in getSignUp Page");
-        res.send("SIgn Up Page")
+        res.render("signup")
     } catch (err) {
         console.log("ERROR on getSignUp", err)
     }
@@ -41,7 +41,7 @@ restaurantController.postSignUp = async (req: Request, res: Response) => {
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log("User in getLogin Page");
-        res.send("Login Page")
+        res.render("login")
     } catch (err) {
         console.log("ERROR on getLogin", err)
     }
