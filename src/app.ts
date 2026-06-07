@@ -26,7 +26,7 @@ app.use(
     session({
         secret: String(process.env.SESSION_SECRET), //project Session code
         cookie: {
-            maxAge: 1000 * 3600 * 3 //3h Duration of Auth
+            maxAge: 1000 * 3600 * 6 //3h Duration of Auth
         },
         store: store,                // session => store name: store
         resave: true,               //start from last authented 
