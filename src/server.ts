@@ -1,7 +1,7 @@
 console.log("BURAK backend has started")
-import app from './app'
 import dotenv from "dotenv"
 dotenv.config();
+import app from './app'
 
 //Connection mongoDb via mongoose package
 import mongoose from "mongoose";

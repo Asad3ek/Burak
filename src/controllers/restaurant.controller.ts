@@ -1,8 +1,9 @@
 import express, { Request, Response } from "express"
 import { T } from "../libs/types/common"
 import MemberService from "../models/Member.service";
-import { LoginInput, MemberInput } from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
+
 
 const memberService = new MemberService();
 
@@ -24,14 +25,17 @@ restaurantController.getSignUp = (req: Request, res: Response) => {
         console.log("ERROR on getSignUp", err)
     }
 }
-restaurantController.postSignUp = async (req: Request, res: Response) => {
+restaurantController.postSignUp = async (req: AdminRequest, res: Response) => {
     try {
         const newMember: MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
         const result = await memberService.postSignUp(newMember);
         //TODO: SESSIONS AUTHENCATION
+        req.session.member = result;
+        req.session.save(function () {
+            res.send(result);
+        })
 
-        res.send(result)
     } catch (err) {
         console.log("ERROR on PostSignUp", err)
         res.send(err);
@@ -46,14 +50,18 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         console.log("ERROR on getLogin", err)
     }
 }
-restaurantController.PostLogin = async (req: Request, res: Response) => {
+restaurantController.PostLogin = async (req: AdminRequest, res: Response) => {
     try {
         console.log("PostLogin Page");
         const input: LoginInput = req.body;
         const result = await memberService.PostLogin(input)
         //TODO: SESSIONS AUTHENCATION
+        req.session.member = result;
+        req.session.save(function () {
+            res.send(result);
+        })
 
-        res.send(result);
+
     } catch (err) {
         console.log("ERROR on PostLogin", err);
         res.send(err);

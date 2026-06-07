@@ -1,9 +1,10 @@
-import express, { urlencoded } from "express";
+import express from "express";
 import path from "path";
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan"
 import { MORGAN_FORMAT } from "./libs/config"
+
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
@@ -16,19 +17,19 @@ const store = new MongoDBStore({
 /** 1 - ENTERENCE **/
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
-app.use(urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT))
 
 /** 2 - SESSION **/
 app.use(
     session({
-        secret: String(process.env.SESSION_SECRET),
+        secret: String(process.env.SESSION_SECRET), //project Session code
         cookie: {
-            maxAge: 1000 * 3600 * 3 //3h
+            maxAge: 1000 * 3600 * 3 //3h Duration of Auth
         },
-        store: store,
-        resave: true,
+        store: store,                // session => store name: store
+        resave: true,               //start from last authented 
         saveUninitialized: true,
     })
 );
