@@ -14,6 +14,10 @@ routerAdmin
     .get("/SignUp", restaurantController.getSignUp)
     .post("/SignUp", restaurantController.postSignUp);
 
+//test
+routerAdmin.get("/check-me", restaurantController.checkAuthSession)
+
+
 /** Product Routers */
 
 /** User Routers */
