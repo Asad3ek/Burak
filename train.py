@@ -1,13 +1,40 @@
+# ============M=================I=================T================TASK=========R====
+def calculate(string="3+4"):
+    calculated = int(string[0]) + int(string[2])
+
+    return calculated
+
+
+result1 = calculate()
+print("RETURN:", result1)
+
+
+# Ikki xonali sonlar uchun:
+def calculate(string="34+43"):
+    calculated = int(string[0:2]) + int(string[3:5])
+
+    return calculated
+
+
+result2 = calculate()
+print("RETURN_2:", result2)
+# TASK R
+
+# "1 + 2" ko'rinishidagi stringni hisoblab number qaytarsin.
+
+# Masalan: calculate("1 + 3") return 4
+
+
 # ============M=================I=================T================TASK=========Q====
-def hasProperty(obj, prop):
-    return prop in obj
+# def hasProperty(obj, prop):
+#     return prop in obj
 
 
-result1 = hasProperty({"name": "BMW"}, "name")
-print("RESULT_1:", result1)
+# result1 = hasProperty({"name": "BMW"}, "name")
+# print("RESULT_1:", result1)
 
-result2 = hasProperty({"name": "BMW"}, "age")
-print("RESULT_2:", result2)
+# result2 = hasProperty({"name": "BMW"}, "age")
+# print("RESULT_2:", result2)
 
 
 # Objectda berilgan string propertysi borligini tekshirsin.
