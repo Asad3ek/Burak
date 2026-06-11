@@ -1,23 +1,61 @@
-# ============M=================I=================T================TASK=========R====
-def calculate(string="3+4"):
-    calculated = int(string[0]) + int(string[2])
-
-    return calculated
+# ============M=================I=================T================TASK=========S====
 
 
-result1 = calculate()
-print("RETURN:", result1)
+# Bitta tushib qolgan raqam uchun:
+def missingNumber1(numbs):
+    for number in range(len(numbs) + 1):
+        if number not in numbs:
+            return number
 
 
-# Ikki xonali sonlar uchun:
-def calculate(string="34+43"):
-    calculated = int(string[0:2]) + int(string[3:5])
-
-    return calculated
+result1 = missingNumber1([3, 0, 1])
+print("RETURN_1:", result1)
 
 
-result2 = calculate()
+# Ummumiy tushib qolgan raqamlar uchun:
+def missingNumber(numbs):
+    missing_numb = []
+    min_num = 0
+    max_num = 9
+    for number in range(min_num, max_num + 1):
+        if number not in numbs:
+            missing_numb.append(number)
+
+    return missing_numb
+
+
+result2 = missingNumber([1, 3, 5, 7, 9])
 print("RETURN_2:", result2)
+
+# TASK S
+
+# Array ichidagi tushib qolgan sonni topib qaytarsin.
+
+# Masalan: missingNumber([3, 0, 1]) return 2
+
+
+# ============M=================I=================T================TASK=========R====
+
+
+# def calculate(string="3+4"):
+#     calculated = int(string[0]) + int(string[2])
+
+#     return calculated
+
+
+# result1 = calculate()
+# print("RETURN:", result1)
+
+
+# # Ikki xonali sonlar uchun:
+# def calculate(string="34+43"):
+#     calculated = int(string[0:2]) + int(string[3:5])
+
+#     return calculated
+
+
+# result2 = calculate()
+# print("RETURN_2:", result2)
 # TASK R
 
 # "1 + 2" ko'rinishidagi stringni hisoblab number qaytarsin.
@@ -26,6 +64,8 @@ print("RETURN_2:", result2)
 
 
 # ============M=================I=================T================TASK=========Q====
+
+
 # def hasProperty(obj, prop):
 #     return prop in obj
 
@@ -41,7 +81,10 @@ print("RETURN_2:", result2)
 
 # Masalan: hasProperty({name: "BMW"}, "name") return true
 
+
 # ============M=================I=================T================TASK=========P====
+
+
 # def objectToArray(objects={"a": 10, "b": 20}):
 #     nestedContain = []
 #     object = []
@@ -64,6 +107,8 @@ print("RETURN_2:", result2)
 
 
 # ============M=================I=================T================TASK=========O====
+
+
 # def calculateSumOfNumbers(string=[10, "10", True, 35]):
 #     NumberResult = 0
 #     for element in string:
@@ -85,6 +130,8 @@ print("RETURN_2:", result2)
 
 
 # ============M=================I=================T================TASK=========N====
+
+
 # def palindromCheck(palinWords):
 #     for word in palinWords:
 #         if (palinWords == palinWords[::-1]):
@@ -104,9 +151,10 @@ print("RETURN_2:", result2)
 
 # Masalan: palindromCheck("dad") return true
 
-# ============M=================I=================T================TASK=========M====
-# numbContain = []
 
+# ============M=================I=================T================TASK=========M====
+
+# numbContain = []
 
 # def getSquareNumbers(numberList=[11, 22, 33, 44, 55]):
 #     for number in numberList:
