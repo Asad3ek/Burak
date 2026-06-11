@@ -1,6 +1,7 @@
 import express from "express"
 import restaurantController from "./controllers/restaurant.controller";
 import productController from "./controllers/product.controller";
+import makeUploader from "./libs/utils/uploader";
 
 const routerAdmin = express.Router();
 
@@ -15,7 +16,9 @@ routerAdmin
 
 routerAdmin
     .get("/SignUp", restaurantController.getSignUp)
-    .post("/SignUp", restaurantController.postSignUp)
+    .post("/SignUp",
+        makeUploader("members").single("membertImage"),
+        restaurantController.postSignUp)
     .get("/Logout", restaurantController.logOut)
 
 //test API
@@ -30,6 +33,7 @@ routerAdmin
     )
     .post("/product/create",
         restaurantController.verifyRestaurant,
+        makeUploader("products").array("productImage", 5),
         productController.createNewProduct)
     .post("/product/:id",
         restaurantController.verifyRestaurant,
