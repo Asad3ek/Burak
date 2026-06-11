@@ -24,9 +24,16 @@ routerAdmin.get("/check-me", restaurantController.checkAuthSession)
 
 /** Product Routers */
 routerAdmin
-    .get("/product/all", productController.getAllProducts)
-    .post("/product/create", productController.createNewProduct)
-    .post("/product/:id", productController.updateChosenProduct)
+    .get("/product/all",
+        restaurantController.verifyRestaurant,
+        productController.getAllProducts
+    )
+    .post("/product/create",
+        restaurantController.verifyRestaurant,
+        productController.createNewProduct)
+    .post("/product/:id",
+        restaurantController.verifyRestaurant,
+        productController.updateChosenProduct)
 
 
 /** User Routers */
