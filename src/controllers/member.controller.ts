@@ -27,7 +27,7 @@ memberController.login = async (req: Request, res: Response) => {
     try {
         console.log("Login Page");
         const input: LoginInput = req.body;
-        const result = await memberService.PostLogin(input)
+        const result = await memberService.processLogin(input)
         //TODO: TOOKENS AUTHENCATION
 
         res.json({ member: result });

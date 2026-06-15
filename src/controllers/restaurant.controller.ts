@@ -3,7 +3,7 @@ import { T } from "../libs/types/common"
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import Errors, { Message } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 
 
 const memberService = new MemberService();
@@ -28,15 +28,20 @@ restaurantController.getSignUp = (req: Request, res: Response) => {
         res.redirect("/admin");
     }
 }
-restaurantController.postSignUp = async (req: AdminRequest, res: Response) => {
+restaurantController.processSignUp = async (req: AdminRequest, res: Response) => {
     try {
+        const file = req.file
+        if (!file)
+            throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
+
         const newMember: MemberInput = req.body;
+        newMember.memberImage = file?.path;
         newMember.memberType = MemberType.RESTAURANT;
-        const result = await memberService.postSignUp(newMember);
-        //TODO: SESSIONS AUTHENCATION
+        const result = await memberService.processSignUp(newMember);
+        //SESSIONS AUTHENCATION
         req.session.member = result;
         req.session.save(function () {
-            res.send(result);
+            res.redirect("/admin/product/all");
         })
 
     } catch (err) {
@@ -57,15 +62,15 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         res.redirect("/admin");
     }
 }
-restaurantController.PostLogin = async (req: AdminRequest, res: Response) => {
+restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
     try {
         console.log("PostLogin Page");
         const input: LoginInput = req.body;
-        const result = await memberService.PostLogin(input)
+        const result = await memberService.processLogin(input)
         //TODO: SESSIONS AUTHENCATION
         req.session.member = result;
         req.session.save(function () {
-            res.send(result);
+            res.redirect("/admin/product/all");
         })
 
 

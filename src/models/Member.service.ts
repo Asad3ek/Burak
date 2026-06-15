@@ -53,7 +53,7 @@ class MemberService {
 
 
     //SSR => Tradetional API
-    public async postSignUp(input: MemberInput): Promise<Member> {
+    public async processSignUp(input: MemberInput): Promise<Member> {
 
         const exist = await this.memberModel
             .findOne({ memberType: MemberType.RESTAURANT })
@@ -71,7 +71,7 @@ class MemberService {
             throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
         }
     }
-    public async PostLogin(input: LoginInput): Promise<Member> {
+    public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel
             .findOne(
                 { memberNick: input.memberNick },

@@ -10,15 +10,15 @@ routerAdmin.get("/", restaurantController.goHome);
 
 routerAdmin
     .get("/Login", restaurantController.getLogin)
-    .post("/Login", restaurantController.PostLogin);
+    .post("/Login", restaurantController.processLogin);
 
 
 
 routerAdmin
     .get("/SignUp", restaurantController.getSignUp)
     .post("/SignUp",
-        makeUploader("members").single("membertImage"),
-        restaurantController.postSignUp)
+        makeUploader("members").single("memberImages"),
+        restaurantController.processSignUp)
     .get("/Logout", restaurantController.logOut)
 
 //test API
@@ -33,7 +33,7 @@ routerAdmin
     )
     .post("/product/create",
         restaurantController.verifyRestaurant,
-        makeUploader("products").array("productImage", 5),
+        makeUploader("products").array("productImages", 5),
         productController.createNewProduct)
     .post("/product/:id",
         restaurantController.verifyRestaurant,

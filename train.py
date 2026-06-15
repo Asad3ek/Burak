@@ -1,31 +1,59 @@
 # ============M=================I=================T================TASK=========S====
 
+def mergeSortedArrays_1(arr1, arr2):
+    return arr1 + arr2
+
+
+result1 = mergeSortedArrays_1([0, 3, 4], [4, 6])
+print("RETURN_1: ", result1)
+
+
+def mergeSortedArrays(a, b):
+    contain = []
+    for num in a:
+        contain.append(num)
+
+    for num2 in b:
+        contain.append(num2)
+
+    return sorted(contain)
+
+
+result2 = mergeSortedArrays([0, 9, 5], [12, 4, 7])
+print("RETURN_2: ", result2)
+
+# TASK T
+
+# Ikkita arrayni qabul qilib, ularni birlashtirib tartiblangan holda qaytarsin.
+
+# Masalan: mergeSortedArrays([0, 3, 4], [4, 6]) return [0, 3, 4, 4, 6]
+
 
 # Bitta tushib qolgan raqam uchun:
-def missingNumber1(numbs):
-    for number in range(len(numbs) + 1):
-        if number not in numbs:
-            return number
+# def missingNumber1(numbs):
+#     for number in range(len(numbs) + 1):
+#         if number not in numbs:
+#             return number
 
 
-result1 = missingNumber1([3, 0, 1])
-print("RETURN_1:", result1)
+# result1 = missingNumber1([3, 0, 1])
+# print("RETURN_1:", result1)
 
 
-# Ummumiy tushib qolgan raqamlar uchun:
-def missingNumber(numbs):
-    missing_numb = []
-    min_num = 0
-    max_num = 9
-    for number in range(min_num, max_num + 1):
-        if number not in numbs:
-            missing_numb.append(number)
+# # Ummumiy tushib qolgan raqamlar uchun:
+# def missingNumber(numbs):
+#     missing_numb = []
+#     min_num = 0
+#     max_num = 9
+#     for number in range(min_num, max_num + 1):
+#         if number not in numbs:
+#             missing_numb.append(number)
 
-    return missing_numb
+#     return missing_numb
 
 
-result2 = missingNumber([1, 3, 5, 7, 9])
-print("RETURN_2:", result2)
+# result2 = missingNumber([1, 3, 5, 7, 9])
+# print("RETURN_2:", result2)
 
 # TASK S
 
