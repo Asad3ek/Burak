@@ -12,10 +12,12 @@ const productController: T = {};
 
 
 /**SSR */
-productController.getAllProducts = (req: Request, res: Response) => {
+productController.getAllProducts = async (req: Request, res: Response) => {
     try {
         console.log("getAllProducts");
-        res.render("product");
+        const data = await productService.getAllProducts()
+
+        res.render("product", { products: data });
     } catch (err) {
         console.log("ERROR on getAllProducts", err);
         if (err instanceof Errors) res.status(err.code).json(err)
