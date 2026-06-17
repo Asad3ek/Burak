@@ -46,7 +46,7 @@ routerAdmin
         restaurantController.verifyRestaurant,
         restaurantController.getUsers
     )
-    .get("/user/update",
+    .post("/user/edit",
         restaurantController.verifyRestaurant,
         restaurantController.updateChosenUser
     )
