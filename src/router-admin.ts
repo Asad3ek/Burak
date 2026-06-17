@@ -41,5 +41,16 @@ routerAdmin
 
 
 /** User Routers */
+routerAdmin
+    .get("/user/all",
+        restaurantController.verifyRestaurant,
+        restaurantController.getUsers
+    )
+    .get("/user/update",
+        restaurantController.verifyRestaurant,
+        restaurantController.updateChosenUser
+    )
+
+
 
 export default routerAdmin; 
