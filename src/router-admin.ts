@@ -9,15 +9,15 @@ const routerAdmin = express.Router();
 routerAdmin.get("/", restaurantController.goHome);
 
 routerAdmin
-    .get("/Login", restaurantController.getLogin)
-    .post("/Login", restaurantController.processLogin);
+    .get("/login", restaurantController.getLogin)
+    .post("/login", restaurantController.processLogin);
 
 
 
 routerAdmin
     .get("/SignUp", restaurantController.getSignUp)
     .post("/SignUp",
-        makeUploader("members").single("memberImages"),
+        makeUploader("members").single("memberImage"),
         restaurantController.processSignUp)
     .get("/Logout", restaurantController.logOut)
 

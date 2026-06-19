@@ -49,7 +49,7 @@ restaurantController.processSignUp = async (req: AdminRequest, res: Response) =>
         const message =
             err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
         res.send(
-            `<script> alert("${message}" window.location.replace(admin/SignUp))</script>`)
+            `<script> alert("${message}") window.location.replace("/admin/SignUp")</script>`);
     }
 }
 
@@ -79,7 +79,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
         const message =
             err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
         res.send(
-            `<script> alert("${message}" window.location.replace(admin/Login))</script>`)
+            `<script> alert("${message}"); window.location.replace("/admin/Login")</script>`);
     }
 }
 
@@ -102,7 +102,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
         console.log("getUsers");
         const result = await memberService.getUsers();
 
-        res.render("user", { data: result });
+        res.render("users", { data: result });
 
     } catch (err) {
         console.log("ERROR on getUsers", err);
@@ -150,7 +150,7 @@ restaurantController.verifyRestaurant = (
     } else {
         const message = Message.NOT_AUTHENCATED
         res.send(
-            `<script>alert ("${message}", window.location.replace('/admin/login')) </script>`
+            `<script> alert("${message}"); window.location.replace('/admin/Login')</script>`
         );
     }
 }
