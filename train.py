@@ -1,26 +1,49 @@
+# ============M=================I=================T================TASK=========V====
+def countChars(string):
+    counter = 0
+    resultObj = {}
+    for ele in string:
+        if(ele in resultObj):
+            resultObj[ele] += 1
+        else: 
+            resultObj[ele] = 1
+
+    return resultObj
+
+result = countChars("Republic of Uzbekistan")
+print("RETURN:", result)
+    
+
+
+# Stringdagi har bir harf necha marta takrorlanganini object sifatida qaytarsin.
+
+# Masalan: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+
+
 # ============M=================I=================T================TASK=========S====
 
-def mergeSortedArrays_1(arr1, arr2):
-    return arr1 + arr2
+# def mergeSortedArrays_1(arr1, arr2):
+#     return arr1 + arr2
 
 
-result1 = mergeSortedArrays_1([0, 3, 4], [4, 6])
-print("RETURN_1: ", result1)
+# result1 = mergeSortedArrays_1([0, 3, 4], [4, 6])
+# print("RETURN_1: ", result1)
 
 
-def mergeSortedArrays(a, b):
-    contain = []
-    for num in a:
-        contain.append(num)
+# def mergeSortedArrays(a, b):
+#     contain = []
+#     for num in a:
+#         contain.append(num)
 
-    for num2 in b:
-        contain.append(num2)
+#     for num2 in b:
+#         contain.append(num2)
 
-    return sorted(contain)
+#     return sorted(contain)
 
 
-result2 = mergeSortedArrays([0, 9, 5], [12, 4, 7])
-print("RETURN_2: ", result2)
+# result2 = mergeSortedArrays([0, 9, 5], [12, 4, 7])
+# print("RETURN_2: ", result2)
 
 # TASK T
 
