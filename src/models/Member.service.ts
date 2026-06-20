@@ -55,7 +55,6 @@ class MemberService {
 
     //SSR => Tradetional API
     public async processSignUp(input: MemberInput): Promise<Member> {
-
         const exist = await this.memberModel
             .findOne({ memberType: MemberType.RESTAURANT })
             .exec();
