@@ -40,31 +40,31 @@
                 </tr>
               </thead>
               <!--  LOOP PRODUCTS: START  -->
-              <% products.map((ele, order)=> { %>
+              <% products.map((value, key)=> { %>
                 <tbody style="background: white">
                   <td>
-                    <%= order+1%>
+                    <%= key+1%>
                   </td>
                   <td>
-                    <%= ele.productName%>
+                    <%= value.productName%>
                   </td>
                   <td>
-                    <%= ele.productCollection%>
+                    <%= value.productCollection%>
                   </td>
                   <td>
-                    <%= ele.productSize%>
+                    <%= value.productCollection === "DRINK"? value.product-volume : value.productSize %>
                   </td>
                   <td>
-                    <%= ele.productPrice%>
+                    <%= value.productPrice%>
                   </td>
                   <td>
-                    <%= ele.productLeftCount%>
+                    <%= value.productLeftCount%>
                   </td>
                   <td>
-                    <select class="spec-select new-product-status">
-                      <option value="PAUSE" selected>PAUSE</option>
-                      <option value="PROCESS">PROCESS</option>
-                      <option value="DELETE">DELETE</option>
+                    <select class="spec-select new-product-status" id="<%=value._id %>">
+                      <option value="PAUSE" <%= value.productStatus === "PAUSE" ? 'selected' : '' %> selected>PAUSE</option>
+                      <option value="PROCESS" <%= value.productStatus === "PROCESS" ? 'selected' : '' %> >PROCESS</option>
+                      <option value="DELETE" <%= value.productStatus === "DELETE" ? 'selected' : '' %> >DELETE</option>
                     </select>
                   </td>
                 </tbody>
