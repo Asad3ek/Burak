@@ -1,17 +1,41 @@
+# ============M=================I=================T================TASK=========W====
+
+def chunkArray(array, size):
+    result = []
+
+    for i in range(0, len(array), size):
+        chunk = array[i:i + size]
+        result.append(chunk)
+
+    return result
+
+
+finalResult = chunkArray([1, 2, 3, 4, 5, 6, 7], 2)
+print(finalResult)
+
+
+
+# TASK W
+
+# Arrayni berilgan uzunlikda bo'laklarga ajratib qaytarsin.
+
+# Masalan: chunkArray([1, 2, 3, 4, 5], 2) return [[1, 2], [3, 4], [5]]
+
+
 # ============M=================I=================T================TASK=========V====
-def countChars(string):
-    counter = 0
-    resultObj = {}
-    for ele in string:
-        if(ele in resultObj):
-            resultObj[ele] += 1
-        else: 
-            resultObj[ele] = 1
+# def countChars(string):
+#     counter = 0
+#     resultObj = {}
+#     for ele in string:
+#         if(ele in resultObj):
+#             resultObj[ele] += 1
+#         else: 
+#             resultObj[ele] = 1
 
-    return resultObj
+#     return resultObj
 
-result = countChars("Republic of Uzbekistan")
-print("RETURN:", result)
+# result = countChars("Republic of Uzbekistan")
+# print("RETURN:", result)
     
 
 
