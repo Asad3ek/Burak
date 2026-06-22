@@ -25,14 +25,16 @@ memberController.signUp = async (req: Request, res: Response) => {
 
 memberController.login = async (req: Request, res: Response) => {
     try {
-        console.log("Login Page");
+        console.log("login Page");
         const input: LoginInput = req.body;
-        const result = await memberService.processLogin(input)
+        const result = await memberService.login(input)
         //TODO: TOOKENS AUTHENCATION
 
         res.json({ member: result });
     } catch (err) {
         console.log("ERROR on Login", err);
+        if (err instanceof Errors) res.status(err.code).json(err)
+        else res.status(Errors.standard.code).json(Errors.standard)
     }
 }
 
