@@ -23,8 +23,8 @@ $(function () {
     });
 
     $(".new-product-status").on("change", async function(e) {
-        const id = e.target.id;
-        const productStatus = $(`#${id}.new-product-status`).val();
+        const id = e.target.id,
+        productStatus = $(`#${id}.new-product-status`).val();
         console.log("productStatus:", productStatus);
 
         try{
@@ -46,12 +46,12 @@ $(function () {
 
 
 function validdateForm() {
-    const productName = $(".product-name").val();
-    const productDesc = $(".product-desc").val();
-    const productPrice = $(".product-price").val();
-    const productStatus = $(".product-status").val();
-    const productLeftCount = $(".product-left-count").val();
-    const productCollection = $(".product-collection").val();
+    const productName = $(".product-name").val(),
+     productDesc = $(".product-desc").val(),
+     productPrice = $(".product-price").val(),
+     productStatus = $(".product-status").val(),
+     productLeftCount = $(".product-left-count").val(),
+     productCollection = $(".product-collection").val();
 
     if(
         productName === "" ||
@@ -74,9 +74,9 @@ function validdateForm() {
 function previewFileHandler(input, order) {
     const imgClassName = input.className;
 
-    const file = $(`.${imgClassName}`).get(0).files[0];
-    const fileType = file['type']
-    const validImageType = ["image/jpeg", "image/png", "image/jpg"]
+    const file = $(`.${imgClassName}`).get(0).files[0],
+     fileType = file['type'],
+     validImageType = ["image/jpeg", "image/png", "image/jpg"]
 
     if(!validImageType.includes(fileType)) {
         alert("Please insert only jpeg, png, jpg files")
