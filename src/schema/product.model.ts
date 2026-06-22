@@ -8,7 +8,7 @@ const productSchema = new Schema({
     productStatus: {
         type: String,
         enum: ProductStatus,
-        default: ProductStatus.PROCESS
+        default: ProductStatus.PAUSE
     },
 
     productCollection: {
@@ -35,7 +35,7 @@ const productSchema = new Schema({
     productSize: {
         type: String,
         enum: ProductSize,
-        default: ProductSize.MEDIUM,
+        default: ProductSize.NORMAL,
     },
 
     productVolume: {
