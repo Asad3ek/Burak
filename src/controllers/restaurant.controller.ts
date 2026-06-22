@@ -102,13 +102,13 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
         console.log("getUsers");
         const result = await memberService.getUsers();
 
-        res.render("users", { data: result });
+        res.render("users", { users: result });
 
     } catch (err) {
         console.log("ERROR on getUsers", err);
         res.redirect("/admin/Login");
 
-    }
+    } 
 }
 
 restaurantController.updateChosenUser = async (req: Request, res: Response) => {
