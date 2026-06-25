@@ -1,17 +1,46 @@
+# ============M=================I=================T================TASK=========X====
+
+def countOccurrences(obj, key):
+    count = 0
+
+    for k, v in obj.items():
+        if k == key:
+            count += 1
+        if isinstance(v, dict):
+            count += countOccurrences(v, key)
+
+    return count
+
+
+
+result = countOccurrences({"model": "A", "s": {"model": "B"}}, "model")
+print("RETURN:", result)
+
+
+
+
+# TASK X
+
+# Object tarkibida (nested bo'lsa ham) berilgan kalit necha marta takrorlanganini sanang.
+
+# Masalan: countOccurrences({model: "A", s: {model: "B"}}, "model") return 2
+
+
+
 # ============M=================I=================T================TASK=========W====
 
-def chunkArray(array, size):
-    result = []
+# def chunkArray(array, size):
+#     result = []
 
-    for i in range(0, len(array), size):
-        chunk = array[i:i + size]
-        result.append(chunk)
+#     for i in range(0, len(array), size):
+#         chunk = array[i:i + size]
+#         result.append(chunk)
 
-    return result
+#     return result
 
 
-finalResult = chunkArray([1, 2, 3, 4, 5, 6, 7], 2)
-print(finalResult)
+# finalResult = chunkArray([1, 2, 3, 4, 5, 6, 7], 2)
+# print(finalResult)
 
 
 

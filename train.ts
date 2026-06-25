@@ -1,4 +1,40 @@
 console.log("TypeScript Train has started")
+
+// ==============M==================I==================T=================TASK============X========
+
+
+function countOccurrences(obj: any, key: string):number { 
+    let count = 0
+    for (const k in obj) {
+        if (k === key) {
+            count++
+        }
+        if (typeof obj[k] === "object") {
+            count += countOccurrences(obj[k], key) 
+        }
+    }
+    return count
+
+}
+
+
+const result = countOccurrences({model: "A", s: {model: "B"}}, "model")
+console.log("result:", result)
+
+
+// TASK X
+
+// Object tarkibida (nested bo'lsa ham) berilgan kalit necha marta takrorlanganini sanang.
+
+// Masalan: countOccurrences({model: "A", s: {model: "B"}}, "model") return 2
+
+
+
+
+
+
+
+
 //============M=====================I========================T================TASK=========P====
 // interface objectType {
 //     key: any;
