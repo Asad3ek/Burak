@@ -1,25 +1,44 @@
 console.log("TypeScript Train has started")
 
+// ==============M==================I==================T=================TASK============Y========
+
+function findIntersection(arr1: number[], arr2: number[]) {
+    const foundIntersection = arr1.filter(
+        (numb: number) => new Set(arr2).has(numb)
+    )
+    return foundIntersection
+}
+
+const result = findIntersection([2, 3, 4, 5], [3, 6, 4])
+console.log("RESULT:", result)
+
+
+
+
+
+
+
+
 // ==============M==================I==================T=================TASK============X========
 
 
-function countOccurrences(obj: any, key: string):number { 
-    let count = 0
-    for (const k in obj) {
-        if (k === key) {
-            count++
-        }
-        if (typeof obj[k] === "object") {
-            count += countOccurrences(obj[k], key) 
-        }
-    }
-    return count
+// function countOccurrences(obj: any, key: string):number { 
+//     let count = 0
+//     for (const k in obj) {
+//         if (k === key) {
+//             count++
+//         }
+//         if (typeof obj[k] === "object") {
+//             count += countOccurrences(obj[k], key) 
+//         }
+//     }
+//     return count
 
-}
+// }
 
 
-const result = countOccurrences({model: "A", s: {model: "B"}}, "model")
-console.log("result:", result)
+// const result = countOccurrences({model: "A", s: {model: "B"}}, "model")
+// console.log("result:", result)
 
 
 // TASK X

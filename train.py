@@ -1,22 +1,37 @@
+# ============M=================I=================T================TASK=========Y====
+
+def findIntersection(arr1, arr2):
+    foundIntersection = set(arr1) & set(arr2)
+
+    return foundIntersection
+
+
+print("RESULT: ", findIntersection([2, 3, 4, 6, 5], [1, 7, 4, 6, 5]))
+
+
+# TASK Y
+
+# Ikkala arrayda ham ishtirok etgan bir xil qiymatlarni qaytarsin.
+
+# Masalan: findIntersection([1, 2, 3], [3, 2, 0]) return [2, 3]
+
+
 # ============M=================I=================T================TASK=========X====
 
-def countOccurrences(obj, key):
-    count = 0
+# def countOccurrences(obj, key):
+#     count = 0
 
-    for k, v in obj.items():
-        if k == key:
-            count += 1
-        if isinstance(v, dict):
-            count += countOccurrences(v, key)
+#     for k, v in obj.items():
+#         if k == key:
+#             count += 1
+#         if isinstance(v, dict):
+#             count += countOccurrences(v, key)
 
-    return count
-
-
-
-result = countOccurrences({"model": "A", "s": {"model": "B"}}, "model")
-print("RETURN:", result)
+#     return count
 
 
+# result = countOccurrences({"model": "A", "s": {"model": "B"}}, "model")
+# print("RETURN:", result)
 
 
 # TASK X
@@ -24,7 +39,6 @@ print("RETURN:", result)
 # Object tarkibida (nested bo'lsa ham) berilgan kalit necha marta takrorlanganini sanang.
 
 # Masalan: countOccurrences({model: "A", s: {model: "B"}}, "model") return 2
-
 
 
 # ============M=================I=================T================TASK=========W====
@@ -43,7 +57,6 @@ print("RETURN:", result)
 # print(finalResult)
 
 
-
 # TASK W
 
 # Arrayni berilgan uzunlikda bo'laklarga ajratib qaytarsin.
@@ -58,20 +71,18 @@ print("RETURN:", result)
 #     for ele in string:
 #         if(ele in resultObj):
 #             resultObj[ele] += 1
-#         else: 
+#         else:
 #             resultObj[ele] = 1
 
 #     return resultObj
 
 # result = countChars("Republic of Uzbekistan")
 # print("RETURN:", result)
-    
 
 
 # Stringdagi har bir harf necha marta takrorlanganini object sifatida qaytarsin.
 
 # Masalan: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
-
 
 
 # ============M=================I=================T================TASK=========S====
