@@ -1,12 +1,33 @@
+# ============M=================I=================T================TASK=========Z====
+def sumEvens(arr):
+    countedEvens = 0
+    for num in arr:
+        if (num % 2 == 0):
+            countedEvens = num + countedEvens
+
+    return countedEvens
+
+
+result = sumEvens([1, 2, 3, 4, 5, 6])
+print("RESULT: ", result)
+
+
+# TASK Z
+
+# Array tarkibidagi juft sonlar yig'indisini hisoblab qaytarsin.
+
+# Masalan: sumEvens([1, 2, 3]) return 2
+
+
 # ============M=================I=================T================TASK=========Y====
 
-def findIntersection(arr1, arr2):
-    foundIntersection = set(arr1) & set(arr2)
+# def findIntersection(arr1, arr2):
+#     foundIntersection = set(arr1) & set(arr2)
 
-    return foundIntersection
+#     return foundIntersection
 
 
-print("RESULT: ", findIntersection([2, 3, 4, 6, 5], [1, 7, 4, 6, 5]))
+# print("RESULT: ", findIntersection([2, 3, 4, 6, 5], [1, 7, 4, 6, 5]))
 
 
 # TASK Y
