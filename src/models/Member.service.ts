@@ -15,7 +15,6 @@ class MemberService {
     public async signUp(input: MemberInput): Promise<Member> {
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
-        console.log("MEMBERpassword:", input.memberPassword);
 
         try {
             const result = await this.memberModel.create(input);
@@ -33,16 +32,16 @@ class MemberService {
         //TODO: Consider member status later
         const member = await this.memberModel
             .findOne(
-                { 
-                    memberNick: input.memberNick, 
-                    memberStatus: {$ne: MemberStatus.DELETE},
+                {
+                    memberNick: input.memberNick,
+                    memberStatus: { $ne: MemberStatus.DELETE },
                 },
                 { memberNick: 1, memberPassword: 1, memberStatus: 1 }
             ).exec();
 
         if (!member) {
             throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK)
-        }else if(member.memberStatus === MemberStatus.BLOCK) {
+        } else if (member.memberStatus === MemberStatus.BLOCK) {
             throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
         }
         const isMatch = await bcrypt.compare(
