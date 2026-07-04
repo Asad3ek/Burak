@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/member/signup", memberController.signUp);
 router.post("/member/login", memberController.login);
+router.get("/member/detail", memberController.verifyAuth);
 
 
 
