@@ -1,6 +1,6 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common"
-import { LoginInput, Member, MemberInput } from "../libs/types/member";
+import { ExtendedRequest, LoginInput, Member, MemberInput } from "../libs/types/member";
 import MemberService from "../models/Member.service";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
@@ -32,7 +32,7 @@ memberController.signUp = async (req: Request, res: Response) => {
 
 memberController.login = async (req: Request, res: Response) => {
     try {
-        console.log("login Page");
+        console.log(`-- ${req.body.memberNick}-- logged in`);
         const input: LoginInput = req.body;
         const result = await memberService.login(input),
             token = await authService.createToken(result)
@@ -50,15 +50,29 @@ memberController.login = async (req: Request, res: Response) => {
     }
 }
 
-memberController.verifyAuth = async (req: Request, res: Response) => {
+memberController.logout = (req: ExtendedRequest, res: Response) => {
     try {
-        let member = null;
+        console.log(`-- ${req.member.memberNick}-- logged out`)
+        res.cookie("accsessToken", null, { maxAge: 0, httpOnly: true });
+        res.status(HttpCode.OK).json({ logout: true });
+    }
+    catch (err) {
+        console.log("ERROR on logout", err);
+        if (err instanceof Errors) res.status(err.code).json(err)
+        else res.status(Errors.standard.code).json(Errors.standard)
+    }
+}
+
+
+memberController.verifyAuth = async (req: ExtendedRequest, res: Response, next: NextFunction) => {
+    try {
+
         const token = await req.cookies["accessToken"];
-        if (token) member = await authService.checkAuth(token);
-        if (!member)
+        if (token) req.member = await authService.checkAuth(token);
+        if (!req.member)
             throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENCATED);
 
-        res.status(HttpCode.OK).json({ member: member });
+        next()
     } catch (err) {
         console.log("ERROR on verifyAuth", err);
         if (err instanceof Errors) res.status(err.code).json(err)
@@ -66,6 +80,24 @@ memberController.verifyAuth = async (req: Request, res: Response) => {
     }
 }
 
+
+memberController.retrieveAuth = async (
+    req: ExtendedRequest,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const token = await req.cookies["accessToken"];
+        if (token) req.member = await authService.checkAuth(token);
+
+        next();
+    }
+    catch (err) {
+        console.log("ERROR on verifyAuth", err);
+        if (err instanceof Errors) res.status(err.code).json(err)
+        else res.status(Errors.standard.code).json(Errors.standard)
+    }
+}
 
 
 export default memberController;
