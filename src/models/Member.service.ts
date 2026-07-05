@@ -57,13 +57,25 @@ class MemberService {
     }
 
     public async getMemberDetail(member: Member): Promise<Member> {
-        const memberId = shapeIntoMongooseObjectId(member._Id);
+        const memberId = shapeIntoMongooseObjectId(member._id);
         const result = await this.memberModel.findOne(
-            { Id: memberId, memberStatus: MemberStatus.ACTIVE }
+            { _id: memberId, memberStatus: MemberStatus.ACTIVE }
         ).exec();
 
         if (!result)
             throw new Errors(HttpCode.NOT_FOUND, Message.NOT_DATA_FOUND);
+
+        return result;
+    }
+
+    public async updateMember(member: Member, input: MemberUpdateInput): Promise<Member> {
+        const memberId = shapeIntoMongooseObjectId(member._id);
+        const result = await this.memberModel.findOneAndUpdate(
+            { _id: memberId }, input, { new: true }
+        ).exec();
+
+        if (!result)
+            throw new Errors(HttpCode.NOT_MODFIED, Message.UPDATE_FAILED);
 
         return result;
     }
