@@ -8,7 +8,7 @@ export interface Member {
     memberNick: string,
     memberPhone: string,
     memberPassword?: string,
-    memberPoint: number,
+    memberPoints: number,
     memberType: string,
     memberStatus: string,
     memberImage?: string,
