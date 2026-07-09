@@ -46,3 +46,11 @@ export interface ProductUpdateInput {
     productViwes?: number,
 
 }
+
+export interface ProductInquiry {
+    page: number,
+    limit: number,
+    order: string,
+    search?: string,
+    productCollection?: string,
+}
