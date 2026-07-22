@@ -4,10 +4,9 @@ import { shapeIntoMongooseObjectId } from "../libs/config";
 import { Member } from "../libs/types/member";
 import { Order, OrderInquiry, OrderItemInput, OrderUpdateInput } from "../libs/types/order";
 import OrderModel from "../schema/Order.model";
-import OrderItemModel from "../schema/orderItem.model";
+import OrderItemModel from "../schema/OrderItem.model";
 import { ObjectId } from "mongoose";
 import MemberService from "./Member.service";
-import MemberModel from "../schema/Member.model";
 
 class OrderService {
     private readonly orderModel;
