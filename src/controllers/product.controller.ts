@@ -12,7 +12,7 @@ const productController: T = {};
 /**SPA */
 productController.getProducts = async (req: Request, res: Response) => {
     try {
-        console.log("getProducts page");
+        console.log("getProducts page ga keldi");
         const { limit, page, productCollection, order, search } = req.query;
         const inquiry: ProductInquiry = {
             order: String(order),
